@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=10 format=3 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
+[ext_resource type="Texture2D" uid="uid://brq6i7oawoohd" path="res://ast/texture/image.png" id="2_jte2u"]
+[ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://res/mesh/mesh_rain.tres" id="3_jte2u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1k4gi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -19,16 +21,21 @@ fog_mode = 1
 fog_density = 1.0
 fog_depth_curve = 1.8025
 fog_depth_begin = 0.0
-fog_depth_end = 2.0
+fog_depth_end = 10.0
 volumetric_fog_density = 0.0608
 volumetric_fog_detail_spread = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k4gi"]
-albedo_color = Color(0.347817, 0.347817, 0.347817, 1)
+albedo_texture = ExtResource("2_jte2u")
+metallic = 0.93
+roughness = 0.24
+uv1_scale = Vector3(9.84, 9.84, 9.84)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bsf3i"]
 material = SubResource("StandardMaterial3D_1k4gi")
 size = Vector2(50, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bsf3i"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_1k4gi")
@@ -42,3 +49,19 @@ environment = SubResource("Environment_jte2u")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_bsf3i")
+
+[node name="Rain" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.98833, 0.15233, 0, -0.15233, 0.98833, 0, 10.7261, 0)
+amount = 5000
+lifetime = 0.84
+mesh = ExtResource("3_jte2u")
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.5, 20)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+gravity = Vector3(0, -60, 0)
+initial_velocity_min = 47.09
+initial_velocity_max = 47.09
+
+[node name="size ref" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bsf3i")
