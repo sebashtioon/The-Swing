@@ -1,8 +1,9 @@
 [gd_resource type="RibbonTrailMesh" load_steps=3 format=3 uid="uid://dg43yr7xlvtnq"]
 
-[ext_resource type="Curve" uid="uid://ddsabpsy5ha11" path="res://res/curve/curve_rain.tres" id="1_qorrv"]
-[ext_resource type="Material" uid="uid://dkw2p0yhc3xas" path="res://res/mat/mat_rain.tres" id="2_rls3x"]
+[ext_resource type="Curve" uid="uid://ddsabpsy5ha11" path="res://res/curve/curve_rain.tres" id="1_xa80w"]
+[ext_resource type="Material" uid="uid://dkw2p0yhc3xas" path="res://res/mat/mat_rain.tres" id="2_1jcac"]
 
 [resource]
-material = ExtResource("2_rls3x")
-curve = ExtResource("1_qorrv")
+material = ExtResource("2_1jcac")
+size = 0.5
+curve = ExtResource("1_xa80w")
