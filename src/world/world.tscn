@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=49 format=4 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
 [ext_resource type="Texture2D" uid="uid://cqy7s6idbt8cy" path="res://ast/models/textures/bush04.png" id="2_bsf3i"]
@@ -6,6 +6,7 @@
 [ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://res/mesh/mesh_rain.tres" id="3_jte2u"]
 [ext_resource type="Texture2D" uid="uid://dqbq8y4d64hhp" path="res://ast/models/textures/bush06.png" id="5_43c6p"]
 [ext_resource type="Script" uid="uid://rxm3whng3uul" path="res://src/world/main_camera.gd" id="6_l0av5"]
+[ext_resource type="PackedScene" uid="uid://papbtsfh8pt8" path="res://ast/models/swing.blend" id="6_wg6dd"]
 [ext_resource type="Shader" uid="uid://u8ig6bwmnk3g" path="res://res/shad/VHS.gdshader" id="7_5kmgb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1k4gi"]
@@ -538,6 +539,9 @@ texture = ExtResource("5_43c6p")
 transform = Transform3D(0.0814871, -0.0180309, 0.579016, 0.126388, 0.571184, 0, -0.565341, 0.125095, 0.0834582, 2.45799, 0, -2.43756)
 mesh = SubResource("ArrayMesh_5kmgb")
 skeleton = NodePath("")
+
+[node name="swing" parent="structures" instance=ExtResource("6_wg6dd")]
+transform = Transform3D(0.0114877, 0, -0.466712, 0, 0.466854, 0, 0.466712, 0, 0.0114877, 6.87054, 0, 0.0416657)
 
 [node name="camera_pivot" type="Node3D" parent="."]
 transform = Transform3D(-0.0764405, 0, 0.997074, 0, 1, 0, -0.997074, 0, -0.0764405, 6.86967, 1.55695, 0)
