@@ -12,6 +12,7 @@ config_version=5
 
 config/name="The Swing"
 config/tags=PackedStringArray("3d", "personal")
+run/main_scene="uid://dbya7y3oahwxs"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
