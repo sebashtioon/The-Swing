@@ -14,3 +14,7 @@ config/name="The Swing"
 config/tags=PackedStringArray("3d", "personal")
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
