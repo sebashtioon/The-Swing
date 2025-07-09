@@ -14,6 +14,14 @@ background_mode = 2
 sky = SubResource("Sky_6fy3g")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_curve = 1.8025
+fog_depth_begin = 0.0
+fog_depth_end = 2.0
+volumetric_fog_density = 0.0608
+volumetric_fog_detail_spread = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k4gi"]
 albedo_color = Color(0.347817, 0.347817, 0.347817, 1)
