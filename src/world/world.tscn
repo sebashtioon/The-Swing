@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=48 format=4 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
 [ext_resource type="Texture2D" uid="uid://cqy7s6idbt8cy" path="res://ast/models/textures/bush04.png" id="2_bsf3i"]
@@ -6,6 +6,7 @@
 [ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://res/mesh/mesh_rain.tres" id="3_jte2u"]
 [ext_resource type="Texture2D" uid="uid://dqbq8y4d64hhp" path="res://ast/models/textures/bush06.png" id="5_43c6p"]
 [ext_resource type="Script" uid="uid://rxm3whng3uul" path="res://src/world/main_camera.gd" id="6_l0av5"]
+[ext_resource type="Shader" uid="uid://u8ig6bwmnk3g" path="res://res/shad/VHS.gdshader" id="7_5kmgb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1k4gi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -417,6 +418,22 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gflgl")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg6dd"]
+shader = ExtResource("7_5kmgb")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 4
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.0
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_1k4gi")
 
@@ -529,3 +546,14 @@ transform = Transform3D(-0.0764405, 0, 0.997074, 0, 1, 0, -0.997074, 0, -0.07644
 fov = 60.0
 script = ExtResource("6_l0av5")
 pivot = NodePath("..")
+
+[node name="ShaderLayer" type="CanvasLayer" parent="camera_pivot/main_camera"]
+
+[node name="VHS" type="ColorRect" parent="camera_pivot/main_camera/ShaderLayer"]
+material = SubResource("ShaderMaterial_wg6dd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
