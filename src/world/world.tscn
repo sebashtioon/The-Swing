@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
-[ext_resource type="Texture2D" uid="uid://brq6i7oawoohd" path="res://ast/texture/image.png" id="2_jte2u"]
+[ext_resource type="Texture2D" uid="uid://brq6i7oawoohd" path="res://ast/texture/ground.png" id="2_jte2u"]
 [ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://res/mesh/mesh_rain.tres" id="3_jte2u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1k4gi"]
