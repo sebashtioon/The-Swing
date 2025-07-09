@@ -1,6 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=7 format=3 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1k4gi"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_6fy3g"]
+sky_material = SubResource("ProceduralSkyMaterial_1k4gi")
+
+[sub_resource type="Environment" id="Environment_jte2u"]
+background_mode = 2
+sky = SubResource("Sky_6fy3g")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k4gi"]
+albedo_color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bsf3i"]
+material = SubResource("StandardMaterial3D_1k4gi")
+size = Vector2(50, 50)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_1k4gi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jte2u")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_bsf3i")
