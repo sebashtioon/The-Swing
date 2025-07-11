@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func start_game():
 	swing.swing()
+	$camera_pos/camera_pivot/main_camera/MainLayer/DialogueInterface.display_text("I haven’t been here in years…", 2.0)
 
 func _process(_delta: float) -> void:
 	camera_pos.global_position = swing.camera_pos_ref.global_position

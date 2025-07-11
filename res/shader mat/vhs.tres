@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bn2fftbpm7rpw"]
+
+[ext_resource type="Shader" uid="uid://u8ig6bwmnk3g" path="res://res/shad/VHS.gdshader" id="1_k5tg3"]
+
+[resource]
+shader = ExtResource("1_k5tg3")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 4
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.0
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
