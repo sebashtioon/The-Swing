@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var vhs_shader_mat = preload("uid://bn2fftbpm7rpw")
+
 @export var swing : Node3D
 @export var camera_pivot : Node3D
 @export var camera_pos : Node3D
@@ -13,12 +15,14 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	start_game()
 
+func _process(_delta: float) -> void:
+	camera_pos.global_position = swing.camera_pos_ref.global_position
+
+
 func start_game():
 	swing.swing()
 	dialogue_timeline.play(&"main")
 
-func _process(_delta: float) -> void:
-	camera_pos.global_position = swing.camera_pos_ref.global_position
 
 func display_message(number : int):
 	if number == 1:
@@ -37,17 +41,36 @@ func display_message(number : int):
 		dialogue_interface.display_text("I came back to remember...", 1.0)
 
 
-
 func fade_out_and_show_options():
 	option_layer.show()
 	black_fade_out.show()
 	black_fade_out.modulate = Color(1, 1, 1, 0)
 	
 	var tween = get_tree().create_tween()
-	tween.connect("finished", show_mouse)
+	tween.connect("finished", after_fade)
 	tween.tween_property(black_fade_out, "modulate", Color(1, 1, 1, 1), 1.0)
 	tween.tween_interval(2.0)
 	tween.tween_property(buttons, "visible", true, 0.0)
 
-func show_mouse():
+func after_fade():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	vhs_shader_mat.set_shader_parameter("samples", 2)
+
+
+func _on_stay_button_pressed() -> void:
+	buttons.hide()
+	await get_tree().create_timer(3.0).timeout
+	$camera_pos/camera_pivot/main_camera/OptionLayer/SeeYouAgain.show()
+	await get_tree().create_timer(5.0).timeout
+	$camera_pos/camera_pivot/main_camera/OptionLayer/SeeYouAgain.hide()
+	await get_tree().create_timer(3.0).timeout
+	$camera_pos/camera_pivot/main_camera/CreditsLayer.show()
+
+func _on_leave_button_pressed() -> void:
+	buttons.hide()
+	await get_tree().create_timer(3.0).timeout
+	$camera_pos/camera_pivot/main_camera/OptionLayer/Goodbye.show()
+	await get_tree().create_timer(5.0).timeout
+	$camera_pos/camera_pivot/main_camera/OptionLayer/Goodbye.hide()
+	await get_tree().create_timer(3.0).timeout
+	$camera_pos/camera_pivot/main_camera/CreditsLayer.show()
