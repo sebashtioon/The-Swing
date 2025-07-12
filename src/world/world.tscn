@@ -983,6 +983,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SitDownLabel" type="Label" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+modulate = Color(0.47788, 0.47788, 0.47788, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1031,9 +1032,9 @@ texture = ExtResource("12_0wvc1")
 
 [node name="SitDownButton" type="Button" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 958.0
+offset_left = 985.065
 offset_top = 254.0
-offset_right = 1104.0
+offset_right = 1110.22
 offset_bottom = 285.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("10_jsigt")
@@ -1041,9 +1042,9 @@ alignment = 2
 
 [node name="LeaveButton" type="Button" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 958.0
+offset_left = 985.065
 offset_top = 294.0
-offset_right = 1104.0
+offset_right = 1110.22
 offset_bottom = 325.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("10_jsigt")
@@ -1051,6 +1052,7 @@ alignment = 2
 
 [node name="ShaderLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 10
+visible = false
 
 [node name="VHS" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/ShaderLayer"]
 material = ExtResource("10_ocs7n")
