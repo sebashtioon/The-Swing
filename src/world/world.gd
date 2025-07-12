@@ -19,7 +19,7 @@ var shown_figure_already : bool = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#start_game()
+	title_screen()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("blink"):
@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 	camera_pos.global_position = swing.camera_pos_ref.global_position
 
 func title_screen():
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func start_game():
 	can_blink = true
@@ -83,7 +83,6 @@ func fade_out_and_show_options():
 
 func after_fade():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	vhs_shader_mat.set_shader_parameter("samples", 2)
 
 
 func _on_stay_button_pressed() -> void:
@@ -107,3 +106,39 @@ func _on_leave_button_pressed() -> void:
 
 func _on_figure_timer_timeout() -> void:
 	can_show_figure = true
+
+
+
+
+func _on_sit_down_button_focus_entered() -> void:
+	pass # Replace with function body.
+
+func _on_sit_down_button_focus_exited() -> void:
+	pass # Replace with function body.
+
+func _on_sit_down_button_button_up() -> void:
+	pass # Replace with function body.
+
+func _on_sit_down_button_button_down() -> void:
+	pass # Replace with function body.
+
+
+
+func _on_leave_button_focus_entered() -> void:
+	pass # Replace with function body.
+
+func _on_leave_button_focus_exited() -> void:
+	pass # Replace with function body.
+
+func _on_leave_button_button_up() -> void:
+	pass # Replace with function body.
+
+func _on_leave_button_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_sit_down_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_leave_button_title_pressed() -> void:
+	get_tree().quit()

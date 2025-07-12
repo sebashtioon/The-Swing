@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=58 format=4 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
 [ext_resource type="Texture2D" uid="uid://cqy7s6idbt8cy" path="res://ast/models/textures/bush04.png" id="2_bsf3i"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ckljjnjbu8aps" path="res://src/dialogue_interface/dialogue_interface.tscn" id="9_ocs7n"]
 [ext_resource type="FontFile" uid="uid://b6gmplwjnbbbj" path="res://ast/fonts/unispace/Unispace Rg.otf" id="10_jsigt"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="10_ocs7n"]
+[ext_resource type="Texture2D" uid="uid://8fh2nuc0ltxg" path="res://ast/texture/right_arrow_white.png" id="12_0wvc1"]
 
 [sub_resource type="Animation" id="Animation_ocs7n"]
 resource_name = "main"
@@ -529,30 +530,6 @@ _data = {
 &"main": SubResource("Animation_jsigt")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lid7q"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wvc1"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.740456, 0.575651, 0, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [node name="World" type="Node3D" node_paths=PackedStringArray("swing", "camera_pivot", "camera_pos", "dialogue_interface", "dialogue_timeline", "option_layer", "black_fade_out", "buttons")]
 script = ExtResource("1_1k4gi")
 swing = NodePath("structures/swing")
@@ -612,6 +589,11 @@ skeleton = NodePath("../..")
 [node name="figure" parent="main" instance=ExtResource("5_lid7q")]
 transform = Transform3D(0.387886, 0, 0.705386, 0, 0.805, 0, -0.705386, 0, 0.387886, -9.10311, 2.38419e-07, -3.76781)
 visible = false
+
+[node name="title_camera" type="Camera3D" parent="main"]
+transform = Transform3D(-0.991549, 0, -0.12973, 0, 1, 0, 0.12973, 0, -0.991549, 2.08462, 2.16385, -7.05505)
+current = true
+fov = 60.0
 
 [node name="structures" type="Node3D" parent="."]
 
@@ -1000,20 +982,75 @@ text = "The Swing"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SitDown" type="Button" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+[node name="SitDownLabel" type="Label" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 319.0
+offset_top = -110.0
+offset_right = 651.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_jsigt")
+theme_override_font_sizes/font_size = 16
+text = "Sit Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SitDownRightArrow" type="Sprite2D" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+position = Vector2(1004, 269)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("12_0wvc1")
+
+[node name="LeaveLabel" type="Label" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 333.0
+offset_top = -70.0
+offset_right = 665.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_jsigt")
+theme_override_font_sizes/font_size = 16
+text = "Leave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaveRightArrow" type="Sprite2D" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+position = Vector2(1004, 309)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("12_0wvc1")
+
+[node name="SitDownButton" type="Button" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 958.0
 offset_top = 254.0
 offset_right = 1104.0
 offset_bottom = 285.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("10_jsigt")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lid7q")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0wvc1")
-text = "Sit Down"
+alignment = 2
+
+[node name="LeaveButton" type="Button" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 958.0
+offset_top = 294.0
+offset_right = 1104.0
+offset_bottom = 325.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("10_jsigt")
 alignment = 2
 
 [node name="ShaderLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/ShaderLayer"]
 material = ExtResource("10_ocs7n")
@@ -1027,3 +1064,13 @@ mouse_filter = 2
 [connection signal="timeout" from="non-physical/FigureTimer" to="." method="_on_figure_timer_timeout"]
 [connection signal="pressed" from="camera_pos/camera_pivot/main_camera/OptionLayer/Buttons/StayButton" to="." method="_on_stay_button_pressed"]
 [connection signal="pressed" from="camera_pos/camera_pivot/main_camera/OptionLayer/Buttons/LeaveButton" to="." method="_on_leave_button_pressed"]
+[connection signal="button_down" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_button_down"]
+[connection signal="button_up" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_button_up"]
+[connection signal="focus_entered" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_focus_entered"]
+[connection signal="focus_exited" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_focus_exited"]
+[connection signal="pressed" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_pressed"]
+[connection signal="button_down" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_button_down"]
+[connection signal="button_up" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_button_up"]
+[connection signal="focus_entered" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_focus_entered"]
+[connection signal="focus_exited" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_focus_exited"]
+[connection signal="pressed" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_title_pressed"]

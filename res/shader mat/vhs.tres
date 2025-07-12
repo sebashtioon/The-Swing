@@ -5,7 +5,7 @@
 [resource]
 shader = ExtResource("1_k5tg3")
 shader_parameter/vhs_resolution = Vector2(320, 240)
-shader_parameter/samples = 4
+shader_parameter/samples = 2
 shader_parameter/crease_noise = 1.0
 shader_parameter/crease_opacity = 0.5
 shader_parameter/filter_intensity = 0.1
