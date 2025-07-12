@@ -11,9 +11,15 @@ extends Node3D
 @export var black_fade_out : ColorRect
 @export var buttons : Control
 
+var can_blink : bool = false
+var times_blinked : int = 0
+var showing_figure : bool = false
+var can_show_figure : bool = false
+var shown_figure_already : bool = false
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	start_game()
+	#start_game()
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("blink"):
@@ -25,11 +31,26 @@ func _process(_delta: float) -> void:
 
 
 func start_game():
+	can_blink = true
 	swing.swing()
 	dialogue_timeline.play(&"main")
+	$"non-physical/FigureTimer".start()
 
 func blink():
-	$camera_pos/camera_pivot/main_camera/MainLayer/BlinkAnimation.play(&"main")
+	if can_blink:
+		times_blinked += 1
+		$camera_pos/camera_pivot/main_camera/MainLayer/BlinkAnimation.play(&"main")
+
+func show_or_hide_figure():
+	if showing_figure:
+		$main/figure.hide()
+		showing_figure = false
+		shown_figure_already = true
+	
+	elif times_blinked > 4 and can_show_figure and !shown_figure_already:
+		$main/figure.show()
+		showing_figure = true
+
 
 func display_message(number : int):
 	if number == 1:
@@ -81,3 +102,7 @@ func _on_leave_button_pressed() -> void:
 	$camera_pos/camera_pivot/main_camera/OptionLayer/Goodbye.hide()
 	await get_tree().create_timer(3.0).timeout
 	$camera_pos/camera_pivot/main_camera/CreditsLayer.show()
+
+
+func _on_figure_timer_timeout() -> void:
+	can_show_figure = true
