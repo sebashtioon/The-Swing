@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=56 format=4 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
 [ext_resource type="Texture2D" uid="uid://cqy7s6idbt8cy" path="res://ast/models/textures/bush04.png" id="2_bsf3i"]
@@ -23,12 +23,9 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.6, 5.1, 19.8667, 40.1333, 60.0667, 80.3333, 100.7, 115.333),
+"times": PackedFloat32Array(5.1, 19.8667, 40.1333, 60.0667, 80.3333, 100.7, 115.333, 122),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [],
-"method": &"fade_out_and_show_options"
-}, {
 "args": [1],
 "method": &"display_message"
 }, {
@@ -49,6 +46,9 @@ tracks/0/keys = {
 }, {
 "args": [7],
 "method": &"display_message"
+}, {
+"args": [],
+"method": &"fade_out_and_show_options"
 }]
 }
 
@@ -471,6 +471,49 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vlji0")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsigt"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0)
+shadow_color = Color(0, 0, 0, 0.831373)
+shadow_size = 162
+
+[sub_resource type="Animation" id="Animation_jsigt"]
+resource_name = "main"
+length = 0.3
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBlink:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 360), Vector2(0, -152), Vector2(0, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBlink:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1152, 264), Vector2(1152, 864), Vector2(1152, 264)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lid7q"]
+_data = {
+&"main": SubResource("Animation_jsigt")
+}
+
 [node name="World" type="Node3D" node_paths=PackedStringArray("swing", "camera_pivot", "camera_pos", "dialogue_interface", "dialogue_timeline", "option_layer", "black_fade_out", "buttons")]
 script = ExtResource("1_1k4gi")
 swing = NodePath("structures/swing")
@@ -601,6 +644,126 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
+
+[node name="BottomBlink" type="Control" parent="camera_pos/camera_pivot/main_camera/MainLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = 523.0
+offset_right = -176.0
+offset_bottom = 523.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BottomBlink1" type="Panel" parent="camera_pos/camera_pivot/main_camera/MainLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -837.0
+offset_top = 299.0
+offset_right = -837.0
+offset_bottom = 367.845
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+scale = Vector2(1.096, 0.414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsigt")
+
+[node name="BottomBlink2" type="Panel" parent="camera_pos/camera_pivot/main_camera/MainLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -293.0
+offset_top = 536.0
+offset_right = -293.0
+offset_bottom = 604.845
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.096, 0.414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsigt")
+
+[node name="BottomBlink3" type="Panel" parent="camera_pos/camera_pivot/main_camera/MainLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 717.0
+offset_top = 596.0
+offset_right = 717.0
+offset_bottom = 664.845
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(1.096, 0.414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsigt")
+
+[node name="TopBlink" type="Control" parent="camera_pos/camera_pivot/main_camera/MainLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = 264.0
+offset_right = 1152.0
+offset_bottom = 263.996
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+mouse_filter = 2
+
+[node name="TopBlink1" type="Panel" parent="camera_pos/camera_pivot/main_camera/MainLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -735.381
+offset_top = 319.556
+offset_right = -735.381
+offset_bottom = 388.401
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+scale = Vector2(1.096, 0.414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsigt")
+
+[node name="TopBlink2" type="Panel" parent="camera_pos/camera_pivot/main_camera/MainLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.381
+offset_top = 556.556
+offset_right = -191.381
+offset_bottom = 625.401
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.096, 0.414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsigt")
+
+[node name="TopBlink3" type="Panel" parent="camera_pos/camera_pivot/main_camera/MainLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 818.619
+offset_top = 616.556
+offset_right = 818.619
+offset_bottom = 685.401
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(1.096, 0.414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsigt")
+
+[node name="BlinkAnimation" type="AnimationPlayer" parent="camera_pos/camera_pivot/main_camera/MainLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_lid7q")
+}
 
 [node name="OptionLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 visible = false
@@ -780,6 +943,10 @@ material = ExtResource("10_ocs7n")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = 34.0
+offset_right = 366.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

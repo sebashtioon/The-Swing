@@ -15,14 +15,21 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	start_game()
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("blink"):
+		blink()
+
 func _process(_delta: float) -> void:
 	camera_pos.global_position = swing.camera_pos_ref.global_position
+
 
 
 func start_game():
 	swing.swing()
 	dialogue_timeline.play(&"main")
 
+func blink():
+	$camera_pos/camera_pivot/main_camera/MainLayer/BlinkAnimation.play(&"main")
 
 func display_message(number : int):
 	if number == 1:
