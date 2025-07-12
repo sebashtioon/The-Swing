@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://dbya7y3oahwxs"]
+[gd_scene load_steps=59 format=4 uid="uid://dbya7y3oahwxs"]
 
 [ext_resource type="Script" uid="uid://bwhoutgf4nhjr" path="res://src/world/world.gd" id="1_1k4gi"]
 [ext_resource type="Texture2D" uid="uid://cqy7s6idbt8cy" path="res://ast/models/textures/bush04.png" id="2_bsf3i"]
@@ -529,6 +529,30 @@ _data = {
 &"main": SubResource("Animation_jsigt")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lid7q"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wvc1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.740456, 0.575651, 0, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="World" type="Node3D" node_paths=PackedStringArray("swing", "camera_pivot", "camera_pos", "dialogue_interface", "dialogue_timeline", "option_layer", "black_fade_out", "buttons")]
 script = ExtResource("1_1k4gi")
 swing = NodePath("structures/swing")
@@ -956,8 +980,40 @@ text = "for Tristan"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TitleScreenLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
+
+[node name="Title" type="Label" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 236.0
+offset_top = -238.0
+offset_right = 568.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_jsigt")
+theme_override_font_sizes/font_size = 41
+text = "The Swing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SitDown" type="Button" parent="camera_pos/camera_pivot/main_camera/TitleScreenLayer"]
+offset_left = 958.0
+offset_top = 254.0
+offset_right = 1104.0
+offset_bottom = 285.0
+theme_override_fonts/font = ExtResource("10_jsigt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lid7q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wvc1")
+text = "Sit Down"
+alignment = 2
+
 [node name="ShaderLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 10
+visible = false
 
 [node name="VHS" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/ShaderLayer"]
 material = ExtResource("10_ocs7n")

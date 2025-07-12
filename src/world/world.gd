@@ -28,7 +28,8 @@ func _input(_event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	camera_pos.global_position = swing.camera_pos_ref.global_position
 
-
+func title_screen():
+	pass
 
 func start_game():
 	can_blink = true
