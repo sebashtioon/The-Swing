@@ -792,6 +792,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_lid7q")
 }
 
+[node name="BlinkInstruction" type="Label" parent="camera_pos/camera_pivot/main_camera/MainLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.537255)
+offset_left = 6.0
+offset_top = 610.0
+offset_right = 46.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("10_jsigt")
+theme_override_font_sizes/font_size = 16
+text = "[space] to blink"
+
 [node name="OptionLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 visible = false
 

@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="The Swing"
+config/version="1.0"
 config/tags=PackedStringArray("3d", "personal")
 run/main_scene="uid://dbya7y3oahwxs"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,6 +26,7 @@ master_input="*res://src/autoload/master_input.gd"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="viewport"
 
 [editor_plugins]

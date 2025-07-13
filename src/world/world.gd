@@ -34,6 +34,7 @@ func title_screen():
 func start_game():
 	can_blink = true
 	swing.swing()
+	$camera_pos/camera_pivot/main_camera/MainLayer/BlinkInstruction.show()
 	$camera_pos/camera_pivot/main_camera/TitleScreenLayer.hide()
 	$camera_pos/camera_pivot/main_camera.make_current()
 	dialogue_timeline.play(&"main")
