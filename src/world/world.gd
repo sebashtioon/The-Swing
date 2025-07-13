@@ -34,6 +34,7 @@ func title_screen():
 func start_game():
 	can_blink = true
 	swing.swing()
+	$camera_pos/camera_pivot/main_camera.make_current()
 	dialogue_timeline.play(&"main")
 	$"non-physical/FigureTimer".start()
 
@@ -129,11 +130,11 @@ func _on_leave_button_mouse_exited() -> void:
 
 
 func _on_sit_down_button_pressed() -> void:
-	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay.modulate = Color(1, 1, 1, 0)
-	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay.show()
+	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
+	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay.show()
 	var tween = get_tree().create_tween()
 	tween.connect("finished", on_title_screen_fade_out_finished)
-	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay,
+	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay,
 	"modulate",
 	Color(1, 1, 1, 1),
 	2.0)
@@ -143,7 +144,7 @@ func _on_sit_down_button_pressed() -> void:
 func on_title_screen_fade_out_finished():
 	start_game()
 	var tween = get_tree().create_tween()
-	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay,
+	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay,
 	"modulate",
 	Color(1, 1, 1, 0),
 	2.0)

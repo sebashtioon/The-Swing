@@ -1051,7 +1051,6 @@ alignment = 2
 
 [node name="ShaderLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/ShaderLayer"]
 material = ExtResource("10_ocs7n")
@@ -1065,7 +1064,7 @@ mouse_filter = 2
 [node name="OverlayLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 100
 
-[node name="BlacOverlay" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/OverlayLayer"]
+[node name="BlackOverlay" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/OverlayLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
