@@ -34,6 +34,7 @@ func title_screen():
 func start_game():
 	can_blink = true
 	swing.swing()
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer.hide()
 	$camera_pos/camera_pivot/main_camera.make_current()
 	dialogue_timeline.play(&"main")
 	$"non-physical/FigureTimer".start()
@@ -130,6 +131,7 @@ func _on_leave_button_mouse_exited() -> void:
 
 
 func _on_sit_down_button_pressed() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
 	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay.show()
 	var tween = get_tree().create_tween()
