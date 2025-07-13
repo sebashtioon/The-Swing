@@ -1051,7 +1051,6 @@ alignment = 2
 
 [node name="ShaderLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 10
-visible = false
 
 [node name="VHS" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/ShaderLayer"]
 material = ExtResource("10_ocs7n")
@@ -1068,6 +1067,6 @@ mouse_filter = 2
 [connection signal="mouse_entered" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_mouse_entered"]
 [connection signal="mouse_exited" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_mouse_exited"]
 [connection signal="pressed" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownButton" to="." method="_on_sit_down_button_pressed"]
-[connection signal="focus_entered" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_focus_entered"]
-[connection signal="focus_exited" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_focus_exited"]
+[connection signal="mouse_entered" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_mouse_entered"]
+[connection signal="mouse_exited" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_mouse_exited"]
 [connection signal="pressed" from="camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveButton" to="." method="_on_leave_button_title_pressed"]

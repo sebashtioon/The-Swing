@@ -119,12 +119,14 @@ func _on_sit_down_button_mouse_exited() -> void:
 	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownRightArrow.modulate = Color(1, 1, 1, 1)
 
 
+func _on_leave_button_mouse_entered() -> void:
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveLabel.modulate = Color(0.805, 0.805, 0.805)
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveRightArrow.modulate = Color(0.805, 0.805, 0.805)
 
-func _on_leave_button_focus_entered() -> void:
-	pass # Replace with function body.
+func _on_leave_button_mouse_exited() -> void:
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveLabel.modulate = Color(1, 1, 1, 1)
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveRightArrow.modulate = Color(1, 1, 1, 1)
 
-func _on_leave_button_focus_exited() -> void:
-	pass # Replace with function body.
 
 
 func _on_sit_down_button_pressed() -> void:
