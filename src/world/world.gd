@@ -128,7 +128,6 @@ func _on_leave_button_mouse_exited() -> void:
 	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/LeaveRightArrow.modulate = Color(1, 1, 1, 1)
 
 
-
 func _on_sit_down_button_pressed() -> void:
 	print("skib")
 
