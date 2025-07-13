@@ -1051,6 +1051,7 @@ alignment = 2
 
 [node name="ShaderLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
 layer = 10
+visible = false
 
 [node name="VHS" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/ShaderLayer"]
 material = ExtResource("10_ocs7n")
@@ -1060,6 +1061,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="OverlayLayer" type="CanvasLayer" parent="camera_pos/camera_pivot/main_camera"]
+layer = 100
+
+[node name="BlacOverlay" type="ColorRect" parent="camera_pos/camera_pivot/main_camera/OverlayLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="timeout" from="non-physical/FigureTimer" to="." method="_on_figure_timer_timeout"]
 [connection signal="pressed" from="camera_pos/camera_pivot/main_camera/OptionLayer/Buttons/StayButton" to="." method="_on_stay_button_pressed"]

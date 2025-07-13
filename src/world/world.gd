@@ -129,7 +129,24 @@ func _on_leave_button_mouse_exited() -> void:
 
 
 func _on_sit_down_button_pressed() -> void:
-	print("skib")
+	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay.modulate = Color(1, 1, 1, 0)
+	$camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay.show()
+	var tween = get_tree().create_tween()
+	tween.connect("finished", on_title_screen_fade_out_finished)
+	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay,
+	"modulate",
+	Color(1, 1, 1, 1),
+	2.0)
+	
+	tween.tween_interval(2.0)
+
+func on_title_screen_fade_out_finished():
+	start_game()
+	var tween = get_tree().create_tween()
+	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlacOverlay,
+	"modulate",
+	Color(1, 1, 1, 0),
+	2.0)
 
 func _on_leave_button_title_pressed() -> void:
 	get_tree().quit()
