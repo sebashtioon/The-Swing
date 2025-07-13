@@ -110,17 +110,13 @@ func _on_figure_timer_timeout() -> void:
 
 #region Menu Buttons
 
-func _on_sit_down_button_focus_entered() -> void:
-	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownLabel.modulate = Color(0.478, 0.478, 0.478)
+func _on_sit_down_button_mouse_entered() -> void:
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownLabel.modulate = Color(0.805, 0.805, 0.805)
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownRightArrow.modulate = Color(0.805, 0.805, 0.805)
 
-func _on_sit_down_button_focus_exited() -> void:
-	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownRightArrow.modulate = Color(0.839, 0.839, 0.839)
-
-func _on_sit_down_button_button_up() -> void:
-	pass # Replace with function body.
-
-func _on_sit_down_button_button_down() -> void:
-	pass # Replace with function body.
+func _on_sit_down_button_mouse_exited() -> void:
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownLabel.modulate = Color(1, 1, 1, 1)
+	$camera_pos/camera_pivot/main_camera/TitleScreenLayer/SitDownRightArrow.modulate = Color(1, 1, 1, 1)
 
 
 
@@ -130,16 +126,9 @@ func _on_leave_button_focus_entered() -> void:
 func _on_leave_button_focus_exited() -> void:
 	pass # Replace with function body.
 
-func _on_leave_button_button_up() -> void:
-	pass # Replace with function body.
-
-func _on_leave_button_button_down() -> void:
-	pass # Replace with function body.
-
-
 
 func _on_sit_down_button_pressed() -> void:
-	pass # Replace with function body.
+	print("skib")
 
 func _on_leave_button_title_pressed() -> void:
 	get_tree().quit()

@@ -23,7 +23,6 @@ master_input="*res://src/autoload/master_input.gd"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="viewport"
 
 [editor_plugins]
