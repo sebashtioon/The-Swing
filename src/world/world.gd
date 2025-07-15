@@ -140,7 +140,7 @@ func _on_sit_down_button_pressed() -> void:
 	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay,
 	"modulate",
 	Color(1, 1, 1, 1),
-	2.0)
+	0.3)
 	
 	tween.tween_interval(2.0)
 
@@ -150,7 +150,7 @@ func on_title_screen_fade_out_finished():
 	tween.tween_property($camera_pos/camera_pivot/main_camera/OverlayLayer/BlackOverlay,
 	"modulate",
 	Color(1, 1, 1, 0),
-	2.0)
+	0.3)
 
 func _on_leave_button_title_pressed() -> void:
 	get_tree().quit()
