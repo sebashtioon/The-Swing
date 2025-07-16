@@ -28,6 +28,7 @@ master_input="*res://src/autoload/master_input.gd"
 
 window/size/mode=4
 window/stretch/mode="viewport"
+display_server/driver.linuxbsd="wayland"
 
 [editor_plugins]
 
