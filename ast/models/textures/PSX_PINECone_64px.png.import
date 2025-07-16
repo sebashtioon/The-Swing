@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://313dlrj016eu"
 path.s3tc="res://.godot/imported/PSX_PINECone_64px.png-8ad3bcd3933e04e3c06d83c2d1ed5d56.s3tc.ctex"
+path.etc2="res://.godot/imported/PSX_PINECone_64px.png-8ad3bcd3933e04e3c06d83c2d1ed5d56.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://ast/models/textures/PSX_PINECone_64px.png"
-dest_files=["res://.godot/imported/PSX_PINECone_64px.png-8ad3bcd3933e04e3c06d83c2d1ed5d56.s3tc.ctex"]
+dest_files=["res://.godot/imported/PSX_PINECone_64px.png-8ad3bcd3933e04e3c06d83c2d1ed5d56.s3tc.ctex", "res://.godot/imported/PSX_PINECone_64px.png-8ad3bcd3933e04e3c06d83c2d1ed5d56.etc2.ctex"]
 
 [params]
 
