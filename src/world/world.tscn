@@ -934,7 +934,7 @@ offset_bottom = -38.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("10_jsigt")
-text = "by sebashtioon"
+text = "a short story by Xintegrate Studios"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="The Swing"
-config/version="1.0"
+config/description="Alone on a swing, you remember what you tried to forget."
+config/version="1.1"
 config/tags=PackedStringArray("3d", "finished(fn)", "personal")
 run/main_scene="uid://dbya7y3oahwxs"
 config/features=PackedStringArray("4.5", "Forward Plus")
